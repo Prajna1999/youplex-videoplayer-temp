@@ -7,15 +7,33 @@ import { RichTextEditor } from "../components";
 //for caraousel of thumbnail videos.
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import ReactPlayer from "react-player";
 
 import "draft-js/dist/Draft.css";
+
+function ResponsivePlayer(){
+    return(
+        <div>
+           <ReactPlayer
+                url='https://www.youtube.com/watch?v=Rq5SEhs9lws'
+                width='640px'
+                height='360px'
+                controls={true}
+                
+
+
+            />
+        </div>
+    )
+}
+
 
 function VideoPlayer() {
   return (
     <>
       <div>
         <Link to="/home">
-          <div className=" absolute top-8 left-44  max-w-max ">
+          <div className=" absolute top-8 left-44 max-h-full ">
             <AiOutlineArrowLeft />
           </div>
         </Link>
@@ -23,9 +41,9 @@ function VideoPlayer() {
         <Navbar page="Go Back to Playlists" />
       </div>
 
-      <div className="flex ml-52 max-h-max mr-12 ">
-        <div className="container mr-5 h-72 bg-blue-500">
-          <h1>Placeholder for video player</h1>
+      <div className="flex  ml-52 max-h-max mr-12 ">
+        <div className="container mr-5 max-h-max ">
+          <ResponsivePlayer />
         </div>
 
         <div className="container w-4/5">
@@ -50,11 +68,13 @@ function VideoPlayer() {
         <h2 className="font-bold">Upcoming Videos</h2>
       </div>
 
+    {/* Carousel */}
       <section className="text-gray-600 body-font">
-        <div className="container ml-48 px-5 py-12 ">
-          <div className="flex flex-wrap -m-4">
+        <div className=" ml-48 mr-12 px-5 py-12 ">
+          <div className="flex  -m-4 snap-x">
 
-            <div className="p-4 md:w-1/3">
+      
+            <div className="p-4 md:w-1/3 snap-center ">
               <div className="h-max border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -64,7 +84,7 @@ function VideoPlayer() {
               </div>
             </div>
 
-            <div className="p-4 md:w-1/3">
+            <div className="p-4 md:w-1/3 snap-center">
               <div className="h-max border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -74,7 +94,7 @@ function VideoPlayer() {
               </div>
             </div>
 
-            <div className="p-4 md:w-1/3">
+            <div className="p-4 md:w-1/3 snap-center">
               <div className="h-max border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
@@ -83,12 +103,26 @@ function VideoPlayer() {
                 />
               </div>
             </div>
+
+                {/* <div className="p-4 md:w-1/3 snap-center">
+                <div className="h-max border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img
+                    className="lg:h-48 md:h-36 w-full object-cover object-center"
+                    src="https://dummyimage.com/720x400"
+                    alt="blog"
+                    />
+                </div>
+                </div> */}
+            
+           
             
             
            
           </div>
         </div>
       </section>
+
+      
     </>
   );
 }

@@ -26,7 +26,7 @@ function Playlist({ header }) {
       <div className="ml-52 min-w-max h-min grid grid-cols-2 gap-2 mb-4 ">
         {isLoading ? <h1>Loading ...</h1>  :
       
-        playlistData?.map((item, index) => {
+        PlaylistData?.map((item, index) => {
             return (
               <Link key={item._id} to="#">
                 <Card sx={{ width: 400 }}>
